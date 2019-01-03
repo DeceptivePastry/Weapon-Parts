@@ -1,5 +1,5 @@
 <configs>
-<!-- Re-add ModPowerBonus EntityDamage for all non-"part" mods -->
+<!-- Re-add ModPowerBonus for all non-"part" mods -->
 	<append xpath="/item_modifiers/item_modifier[starts-with(@name, 'modGun') and not(contains(@name, 'Bow'))]/effect_group[1]">
 		<passive_effect name="EntityDamage" operation="perc_add" value="0.05"/>
 		<passive_effect name="BlockDamage" operation="perc_add" value="0.05"/>
