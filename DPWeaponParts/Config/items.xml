@@ -1,0 +1,163 @@
+<configs>
+<!-- Remove ModPowerBonus to prevent parts from giving damage boost -->
+	<remove xpath="/items/item[starts-with(@name, 'gun')]/effect_group/passive_effect[@name='ModPowerBonus'][@operation='perc_add']"/>
+	<remove xpath="/items/item[starts-with(@name, 'melee') and not(contains(@name, 'Hand'))]/effect_group/passive_effect[@name='ModPowerBonus'][@operation='perc_add']"/>
+	<set xpath="/items/item/effect_group/passive_effect[@name='ModPowerBonus'][@tags='EconomicValue']/@value">100</set>
+
+	<!-- <append xpath="/items/item[starts-with(@name, 'melee') and not(contains(@name, 'Hand'))]/effect_group[@name='Base Effects']">
+		<passive_effect name="EntityDamage" operation="perc_add" value="0,0.375" tier="1,6"/>
+		<passive_effect name="BlockDamage" operation="perc_add" value="0,0.375" tier="1,6"/>
+		<passive_effect name="HarvestCount" operation="perc_add" value="0,0.5" tier="1,6" tags="oreWoodHarvest"/>
+	</append>
+	<append xpath="/items/item[starts-with(@name, 'melee') and not(contains(@name, 'Hand'))]/effect_group[@name='Power Attack']">
+		<passive_effect name="EntityDamage" operation="perc_add" value="0,0.375" tier="1,6" tags="secondary"/>
+		<passive_effect name="BlockDamage" operation="perc_add" value="0,0.375" tier="1,6" tags="secondary"/>
+	</append>
+
+	<append xpath="/items/item[starts-with(@name, 'gun') and not(contains(@name, 'Bow') or contains(@name, 'bow'))]/effect_group[@name='Base Effects']">
+		<passive_effect name="EntityDamage" operation="perc_add" value="0,0.25" tier="1,6"/>
+	</append>
+	<append xpath="/items/item[starts-with(@name, 'gun') and (contains(@name, 'Bow') or contains(@name, 'bow'))]/effect_group[@name='Base Effects']">
+		<passive_effect name="EntityDamage" operation="perc_add" value="0,0.375" tier="1,6"/>
+	</append> -->
+
+<!-- gunPistol -->
+	<!-- General -->
+	<append xpath="/items/item[@name='gunPistol']"><property name="CustomIcon" value="partsPistol_receiver"/></append>
+	<append xpath="/items/item[@name='gunPistol']/property[@name='Tags']/@value">,gunPistol</append>
+	<set xpath="/items/item[@name='gunPistol']/effect_group/passive_effect[@name='ModSlots']/@value">4,9</set>
+	<!-- Action -->
+	<set xpath="/items/item[@name='gunPistol']/effect_group/passive_effect[@name='DegradationMax']/@value">1,1</set>
+	<!-- Barrel -->
+	<append xpath="/items/item[@name='gunPistol']/effect_group">
+		<passive_effect name="DegradationPerUse" operation="base_set" value="500"/>
+	</append>
+	<!-- Magazine -->
+	<set xpath="/items/item[@name='gunPistol']/effect_group/passive_effect[@name='MagazineSize']/@value">0</set>
+	<!-- Grip -->
+	<set xpath="/items/item[@name='gunPistol']/effect_group/passive_effect[@name='SpreadDegreesVertical']/@value">10</set>
+	<set xpath="/items/item[@name='gunPistol']/effect_group/passive_effect[@name='SpreadDegreesHorizontal']/@value">10</set>
+	<set xpath="/items/item[@name='gunPistol']/effect_group/passive_effect[@name='SpreadMultiplierAiming']/@value">0.5</set>
+	<set xpath="/items/item[@name='gunPistol']/effect_group/passive_effect[@name='KickDegreesVertical']/@value">3.2</set>
+	
+<!-- gun44Magnum -->
+	<!-- General -->
+	<append xpath="/items/item[@name='gun44Magnum']"><property name="CustomIcon" value="parts44Magnum_frame"/></append>
+	<append xpath="/items/item[@name='gun44Magnum']/property[@name='Tags']/@value">,gun44Magnum</append>
+	<set xpath="/items/item[@name='gun44Magnum']/effect_group/passive_effect[@name='ModSlots']/@value">4,9</set>
+	<!-- Action -->
+	<set xpath="/items/item[@name='gun44Magnum']/effect_group/passive_effect[@name='DegradationMax']/@value">1,1</set>
+	<!-- Barrel -->
+	<set xpath="/items/item[@name='gun44Magnum']/effect_group/passive_effect[@name='DegradationPerUse']/@value">7000</set>
+	<!-- Magazine -->
+	<set xpath="/items/item[@name='gun44Magnum']/effect_group/passive_effect[@name='MagazineSize']/@value">0</set>
+	<!-- Grip -->
+	<set xpath="/items/item[@name='gun44Magnum']/effect_group/passive_effect[@name='SpreadDegreesVertical']/@value">10</set>
+	<set xpath="/items/item[@name='gun44Magnum']/effect_group/passive_effect[@name='SpreadDegreesHorizontal']/@value">10</set>
+	<set xpath="/items/item[@name='gun44Magnum']/effect_group/passive_effect[@name='SpreadMultiplierAiming']/@value">0.5</set>
+	<set xpath="/items/item[@name='gun44Magnum']/effect_group/passive_effect[@name='KickDegreesVertical']/@value">15</set>
+	
+<!-- gunPumpShotgun -->
+	<!-- General -->
+	<append xpath="/items/item[@name='gunPumpShotgun']"><property name="CustomIcon" value="partsPumpShotgun_receiver"/></append>
+	<append xpath="/items/item[@name='gunPumpShotgun']/property[@name='Tags']/@value">,gunPumpShotgun</append>
+	<set xpath="/items/item[@name='gunPumpShotgun']/effect_group/passive_effect[@name='ModSlots']/@value">4,9</set>
+	<!-- Action -->
+	<set xpath="/items/item[@name='gunPumpShotgun']/effect_group/passive_effect[@name='DegradationMax']/@value">1,1</set>
+	<!-- Barrel -->
+	<append xpath="/items/item[@name='gunPumpShotgun']/effect_group">
+		<passive_effect name="SpreadDegreesVertical" operation="base_set" value="20"/>
+		<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="20"/>
+	</append>
+	<set xpath="/items/item[@name='gunPumpShotgun']/effect_group/passive_effect[@name='DegradationPerUse']/@value">4500</set>
+	<!-- Magazine -->
+	<set xpath="/items/item[@name='gunPumpShotgun']/effect_group/passive_effect[@name='MagazineSize']/@value">0</set>
+	<!-- Stock -->
+	<set xpath="/items/item[@name='gunPumpShotgun']/effect_group/passive_effect[@name='KickDegreesVertical']/@value">12.6</set>
+	<set xpath="/items/item[@name='gunPumpShotgun']/effect_group/passive_effect[@name='KickDegreesHorizontal']/@value">-1.5,1.5</set>
+	
+<!-- gunHuntingRifle -->
+	<!-- General -->
+	<append xpath="/items/item[@name='gunHuntingRifle']"><property name="CustomIcon" value="partsHuntingRifle_receiver"/></append>
+	<append xpath="/items/item[@name='gunHuntingRifle']/property[@name='Tags']/@value">,gunHuntingRifle</append>
+	<set xpath="/items/item[@name='gunHuntingRifle']/effect_group/passive_effect[@name='ModSlots']/@value">3,8</set>
+	<set xpath="/items/item[@name='gunHuntingRifle']/effect_group/passive_effect[@name='MagazineSize']/@value">0</set>
+	<!-- Action -->
+	<set xpath="/items/item[@name='gunHuntingRifle']/effect_group/passive_effect[@name='DegradationMax']/@value">1,1</set>
+	<set xpath="/items/item[@name='gunHuntingRifle']/effect_group/passive_effect[@name='ReloadSpeedMultiplier']/@value">1</set>
+	<!-- Barrel -->
+	<set xpath="/items/item[@name='gunHuntingRifle']/effect_group/passive_effect[@name='DegradationPerUse']/@value">6200</set>
+	<!-- Stock -->
+	<set xpath="/items/item[@name='gunHuntingRifle']/effect_group/passive_effect[@name='SpreadDegreesVertical']/@value">10</set>
+	<set xpath="/items/item[@name='gunHuntingRifle']/effect_group/passive_effect[@name='SpreadDegreesHorizontal']/@value">10</set>
+	<set xpath="/items/item[@name='gunHuntingRifle']/effect_group/passive_effect[@name='SpreadMultiplierAiming']/@value">0.5</set>
+	<set xpath="/items/item[@name='gunHuntingRifle']/effect_group/passive_effect[@name='KickDegreesVertical']/@value">6</set>
+	
+<!-- gunMR10 -->
+	<!-- General -->
+	<append xpath="/items/item[@name='gunMR10']"><property name="CustomIcon" value="partsMR10_receiver"/></append>
+	<append xpath="/items/item[@name='gunMR10']/property[@name='Tags']/@value">,gunMR10</append>
+	<set xpath="/items/item[@name='gunMR10']/effect_group/passive_effect[@name='ModSlots']/@value">4,9</set>
+	<!-- Action -->
+	<set xpath="/items/item[@name='gunMR10']/effect_group/passive_effect[@name='DegradationMax']/@value">1,1</set>
+	<!-- Barrel -->
+	<set xpath="/items/item[@name='gunMR10']/effect_group/passive_effect[@name='DegradationPerUse']/@value">8800</set>
+	<!-- Magazine -->
+	<set xpath="/items/item[@name='gunMR10']/effect_group/passive_effect[@name='MagazineSize']/@value">0</set>
+	<!-- Stock -->
+	<set xpath="/items/item[@name='gunMR10']/effect_group/passive_effect[@name='SpreadDegreesVertical']/@value">10</set>
+	<set xpath="/items/item[@name='gunMR10']/effect_group/passive_effect[@name='SpreadDegreesHorizontal']/@value">10</set>
+	<set xpath="/items/item[@name='gunMR10']/effect_group/passive_effect[@name='SpreadMultiplierAiming']/@value">0.5</set>
+	<set xpath="/items/item[@name='gunMR10']/effect_group/passive_effect[@name='KickDegreesVertical']/@value">9</set>
+
+<!-- gunSMG5 -->
+	<!-- General -->
+	<append xpath="/items/item[@name='gunSMG5']"><property name="CustomIcon" value="partsSMG5_receiver"/></append>
+	<append xpath="/items/item[@name='gunSMG5']/property[@name='Tags']/@value">,gunSMG5</append>
+	<set xpath="/items/item[@name='gunSMG5']/effect_group/passive_effect[@name='ModSlots']/@value">4,9</set>
+	<!-- Action -->
+	<set xpath="/items/item[@name='gunSMG5']/effect_group/passive_effect[@name='DegradationMax']/@value">1,1</set>
+	<!-- Barrel -->
+	<set xpath="/items/item[@name='gunSMG5']/effect_group/passive_effect[@name='DegradationPerUse']/@value">14000</set>
+	<!-- Magazine -->
+	<set xpath="/items/item[@name='gunSMG5']/effect_group/passive_effect[@name='MagazineSize']/@value">0</set>
+	<!-- Stock -->
+	<set xpath="/items/item[@name='gunSMG5']/effect_group/passive_effect[@name='SpreadDegreesVertical']/@value">10</set>
+	<set xpath="/items/item[@name='gunSMG5']/effect_group/passive_effect[@name='SpreadDegreesHorizontal']/@value">10</set>
+	<set xpath="/items/item[@name='gunSMG5']/effect_group/passive_effect[@name='SpreadMultiplierAiming']/@value">0.5</set>
+	<set xpath="/items/item[@name='gunSMG5']/effect_group/passive_effect[@name='KickDegreesVertical']/@value">3</set>
+
+<!-- gunAK47 -->
+	<!-- General -->
+	<append xpath="/items/item[@name='gunAK47']"><property name="CustomIcon" value="partsAK47_receiver"/></append>
+	<append xpath="/items/item[@name='gunAK47']/property[@name='Tags']/@value">,gunAK47</append>
+	<set xpath="/items/item[@name='gunAK47']/effect_group/passive_effect[@name='ModSlots']/@value">4,9</set>
+	<!-- Action -->
+	<set xpath="/items/item[@name='gunAK47']/effect_group/passive_effect[@name='DegradationMax']/@value">1,1</set>
+	<!-- Barrel -->
+	<set xpath="/items/item[@name='gunAK47']/effect_group/passive_effect[@name='DegradationPerUse']/@value">14000</set>
+	<!-- Magazine -->
+	<set xpath="/items/item[@name='gunAK47']/effect_group/passive_effect[@name='MagazineSize']/@value">0</set>
+	<!-- Stock -->
+	<set xpath="/items/item[@name='gunAK47']/effect_group/passive_effect[@name='SpreadDegreesVertical']/@value">10</set>
+	<set xpath="/items/item[@name='gunAK47']/effect_group/passive_effect[@name='SpreadDegreesHorizontal']/@value">10</set>
+	<set xpath="/items/item[@name='gunAK47']/effect_group/passive_effect[@name='SpreadMultiplierAiming']/@value">0.5</set>
+	<set xpath="/items/item[@name='gunAK47']/effect_group/passive_effect[@name='KickDegreesVertical']/@value">3.5</set>
+
+<!-- gunRocketLauncher -->
+	<!-- General -->
+	<append xpath="/items/item[@name='gunRocketLauncher']"><property name="CustomIcon" value="partsRocketLauncher_receiver"/></append>
+	<append xpath="/items/item[@name='gunRocketLauncher']/property[@name='Tags']/@value">,gunRocketLauncher</append>
+	<set xpath="/items/item[@name='gunRocketLauncher']/effect_group/passive_effect[@name='ModSlots']/@value">3,8</set>
+	<!-- Action -->
+	<set xpath="/items/item[@name='gunRocketLauncher']/effect_group/passive_effect[@name='DegradationMax']/@value">1,1</set>
+	<set xpath="/items/item[@name='gunRocketLauncher']/effect_group/passive_effect[@name='MagazineSize']/@value">0</set>
+	<!-- Barrel -->
+	<set xpath="/items/item[@name='gunRocketLauncher']/effect_group/passive_effect[@name='DegradationPerUse']/@value">10000</set>
+	<!-- Grip -->
+	<set xpath="/items/item[@name='gunRocketLauncher']/effect_group/passive_effect[@name='SpreadDegreesVertical']/@value">10</set>
+	<set xpath="/items/item[@name='gunRocketLauncher']/effect_group/passive_effect[@name='SpreadDegreesHorizontal']/@value">10</set>
+	<set xpath="/items/item[@name='gunRocketLauncher']/effect_group/passive_effect[@name='SpreadMultiplierAiming']/@value">0.5</set>
+	<set xpath="/items/item[@name='gunRocketLauncher']/effect_group/passive_effect[@name='KickDegreesVertical']/@value">20</set>
+
+</configs>

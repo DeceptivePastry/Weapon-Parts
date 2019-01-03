@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+	<ModInfo>
+		<Name value="Deceptive Pastry Weapon Parts" />
+		<Description value="Implements weapon parts that install to mod slots. Weapons need parts to work" />
+		<Author value="Deceptive Pastry" />
+		<Version value="1" />
+		<Website value="http://7daystodie.com" />
+	</ModInfo>
+</xml>

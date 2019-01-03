@@ -1,0 +1,460 @@
+<configs>
+<!-- Re-add ModPowerBonus EntityDamage for all non-"part" mods -->
+	<append xpath="/item_modifiers/item_modifier[starts-with(@name, 'modGun') and not(contains(@name, 'Bow'))]/effect_group[1]">
+		<passive_effect name="EntityDamage" operation="perc_add" value="0.05"/>
+		<passive_effect name="BlockDamage" operation="perc_add" value="0.05"/>
+	</append>
+	<append xpath="/item_modifiers/item_modifier[starts-with(@name, 'modGunBow')]/effect_group[1]">
+		<passive_effect name="EntityDamage" operation="perc_add" value="0.075"/>
+		<passive_effect name="BlockDamage" operation="perc_add" value="0.075"/>
+	</append>
+	<append xpath="/item_modifiers/item_modifier[starts-with(@name, 'modMelee')]/effect_group[1]">
+		<passive_effect name="EntityDamage" operation="perc_add" value="0.075"/>
+		<passive_effect name="BlockDamage" operation="perc_add" value="0.075"/>
+	</append>
+
+	<append xpath="/item_modifiers">
+
+	<!-- gunPistol -->
+		<item_modifier name="Pistol Action" installable_tags="gunPistol" modifier_tags="partsPistol_action" type="attachment">
+			<property name="CustomIcon" value="partsPistol_action"/>
+			<property name="Material" value="MmechanicalParts"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="15"/>
+			<property name="EconomicValue" value="60"/>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+			<item_property_overrides name="*">
+				<property name="CustomIcon" value="gunPistol"/>
+			</item_property_overrides>
+			<effect_group>
+				<passive_effect name="DegradationMax" operation="base_set" value="250,500" tier="1,6"/>
+				<passive_effect name="RoundsPerMinute" operation="perc_add" value="0,1" tier="1,6"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="Pistol Barrel" installable_tags="gunPistol" modifier_tags="partsPistol_barrel" type="attachment">
+			<property name="CustomIcon" value="partsPistol_barrel"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="14"/>
+			<property name="EconomicValue" value="60"/>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+			<effect_group>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="1"/>
+				<passive_effect name="MaxRange" operation="perc_add" value="0,1" tier="1,6"/>
+				<passive_effect name="DamageFalloffRange" operation="perc_add" value="0,0.5" tier="1,6"/>
+				<passive_effect name="SpreadDegreesVertical" operation="perc_subtract" value="0,0.15" tier="1,6"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="perc_subtract" value="0,0.15" tier="1,6"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="Pistol Magazine" installable_tags="gunPistol" modifier_tags="partsPistol_magazine" type="attachment">
+			<property name="CustomIcon" value="partsPistol_magazine"/>
+			<property name="Material" value="MmechanicalParts"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="10"/>
+			<property name="EconomicValue" value="60"/>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+			<effect_group>
+				<passive_effect name="MagazineSize" operation="base_set" value="10"/>
+				<passive_effect name="MagazineSize" operation="perc_add" value="0,0.2,0.5,0.7,0.8,1" tier="1,2,3,4,5,6"/>
+			</effect_group>
+		</item_modifier>
+		<item_modifier name="Pistol Grip" installable_tags="gunPistol" modifier_tags="partsPistol_grip" type="attachment">
+			<property name="CustomIcon" value="partsPistol_grip"/>
+			<property name="Material" value="Mplastics"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="4"/>
+			<property name="EconomicValue" value="60"/>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+			<effect_group>
+				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="1.5,1.275" tier="1,6"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="1.5,1.275" tier="1,6"/>
+				<passive_effect name="SpreadMultiplierAiming" operation="base_set" value=".4"/>
+				<passive_effect name="KickDegreesVertical" operation="base_set" value="0.8"/>
+			</effect_group>
+		</item_modifier>
+		
+	<!-- gun44Magnum -->
+		<item_modifier name="44 Magnum Action" installable_tags="gun44Magnum" modifier_tags="parts44Magnum_action" type="attachment">
+			<property name="CustomIcon" value="parts44Magnum_action"/>
+			<property name="Material" value="MmechanicalParts"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="15"/>
+			<property name="EconomicValue" value="140"/>
+			<item_property_overrides name="*">
+				<property name="CustomIcon" value="gun44Magnum"/>
+			</item_property_overrides>
+			<effect_group>
+				<passive_effect name="DegradationMax" operation="base_set" value="3500,7000" tier="1,6"/>
+				<passive_effect name="RoundsPerMinute" operation="perc_add" value="0,0.5" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		<item_modifier name="44 Magnum Barrel" installable_tags="gun44Magnum" modifier_tags="parts44Magnum_barrel" type="attachment">
+			<property name="CustomIcon" value="parts44Magnum_barrel"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="14"/>
+			<property name="EconomicValue" value="140"/>
+			<effect_group>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="12"/>
+				<passive_effect name="MaxRange" operation="perc_add" value="0,1" tier="1,6"/>
+				<passive_effect name="DamageFalloffRange" operation="perc_add" value="0,1" tier="1,6"/>
+				<passive_effect name="SpreadDegreesVertical" operation="perc_subtract" value="0,0.15" tier="1,6"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="perc_subtract" value="0,0.15" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		<item_modifier name="44 Magnum Cylinder" installable_tags="gun44Magnum" modifier_tags="parts44Magnum_cylinder" type="attachment">
+			<property name="CustomIcon" value="parts44Magnum_cylinder"/>
+			<property name="Material" value="MmechanicalParts"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="10"/>
+			<property name="EconomicValue" value="140"/>
+			<effect_group>
+				<passive_effect name="MagazineSize" operation="base_set" value="6"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0,0.5" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		<item_modifier name="44 Magnum Grip" installable_tags="gun44Magnum" modifier_tags="parts44Magnum_grip" type="attachment">
+			<property name="CustomIcon" value="parts44Magnum_grip"/>
+			<property name="Material" value="Mplastics"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="4"/>
+			<property name="EconomicValue" value="140"/>
+			<effect_group>
+				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="1.3,0.91" tier="1,6"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="1.3,0.91" tier="1,6"/>
+				<passive_effect name="SpreadMultiplierAiming" operation="base_set" value="0.35"/>
+				<passive_effect name="KickDegreesVertical" operation="base_set" value="5,3.5" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+
+	<!-- gunPumpShotgun -->
+		<item_modifier name="Shotgun Action" installable_tags="gunPumpShotgun" modifier_tags="partsPumpShotgun_action" type="attachment">
+			<property name="CustomIcon" value="partsPumpShotgun_action"/>
+			<property name="Material" value="MmechanicalParts"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="15"/>
+			<property name="EconomicValue" value="120"/>
+			<item_property_overrides name="*">
+				<property name="CustomIcon" value="gunPumpShotgun"/>
+			</item_property_overrides>
+			<effect_group>
+				<passive_effect name="DegradationMax" operation="base_set" value="2500,4500" tier="1,6"/>
+				<passive_effect name="RoundsPerMinute" operation="perc_add" value="0,0.335" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		<item_modifier name="Shotgun Barrel" installable_tags="gunPumpShotgun" modifier_tags="partsPumpShotgun_barrel" type="attachment">
+			<property name="CustomIcon" value="partsPumpShotgun_barrel"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="40"/>
+			<property name="EconomicValue" value="120"/>
+			<effect_group>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="9"/>
+				<passive_effect name="MaxRange" operation="perc_add" value="0,1" tier="1,6"/>
+				<passive_effect name="DamageFalloffRange" operation="base_set" value="0,0.5" tier="1,6"/>
+				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="3.2"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="3.2"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		<item_modifier name="Shotgun Magazine" installable_tags="gunPumpShotgun" modifier_tags="partsPumpShotgun_magazine" type="attachment">
+			<property name="CustomIcon" value="partsPumpShotgun_magazine"/>
+			<property name="Material" value="MmechanicalParts"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="10"/>
+			<property name="EconomicValue" value="120"/>
+			<effect_group>
+				<passive_effect name="MagazineSize" operation="base_set" value="4"/>
+				<passive_effect name="MagazineSize" operation="perc_add" value="0.25,0.25,0.5,0.5,0.75,1" tier="1,2,3,4,5,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		<item_modifier name="Shotgun Stock" installable_tags="gunPumpShotgun" modifier_tags="partsPumpShotgun_stock" type="attachment">
+			<property name="CustomIcon" value="partsPumpShotgun_stock"/>
+			<property name="Material" value="Mwood"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="34"/>
+			<property name="EconomicValue" value="120"/>
+			<effect_group>
+				<passive_effect name="KickDegreesVertical" operation="base_set" value="4.2,2.94" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		
+	<!-- gunHuntingRifle -->
+		<item_modifier name="Hunting Rifle Action" installable_tags="gunHuntingRifle" modifier_tags="partsHuntingRifle_action" type="attachment">
+			<property name="CustomIcon" value="partsHuntingRifle_action"/>
+			<property name="Material" value="MmechanicalParts"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="10"/>
+			<property name="EconomicValue" value="100"/>
+			<item_property_overrides name="*">
+				<property name="CustomIcon" value="gunHuntingRifle"/>
+			</item_property_overrides>
+			<effect_group>
+				<passive_effect name="DegradationMax" operation="base_set" value="3100,6200" tier="1,6"/>
+				<passive_effect name="MagazineSize" operation="base_set" value="1"/>
+				<passive_effect name="RoundsPerMinute" operation="perc_add" value="0,0.2" tier="1,6"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0,0.2" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		<item_modifier name="Hunting Rifle Barrel" installable_tags="gunHuntingRifle" modifier_tags="partsHuntingRifle_barrel" type="attachment">
+			<property name="CustomIcon" value="partsHuntingRifle_barrel"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="40"/>
+			<property name="EconomicValue" value="100"/>
+			<effect_group>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="15"/>
+				<passive_effect name="MaxRange" operation="perc_add" value="0,1" tier="1,6"/>
+				<passive_effect name="DamageFalloffRange" operation="perc_add" value="0,0.5" tier="1,6"/>
+				<passive_effect name="SpreadDegreesVertical" operation="perc_subtract" value="0,0.15" tier="1,6"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="perc_subtract" value="0,0.15" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		<item_modifier name="Hunting Rifle Stock" installable_tags="gunHuntingRifle" modifier_tags="partsHuntingRifle_stock" type="attachment">
+			<property name="CustomIcon" value="partsHuntingRifle_stock"/>
+			<property name="Material" value="Mwood"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="40"/>
+			<property name="EconomicValue" value="100"/>
+			<effect_group>
+				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="3,2.1" tier="1,6"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="3,2.1" tier="1,6"/>
+				<passive_effect name="SpreadMultiplierAiming" operation="base_set" value="0.048"/>
+				<passive_effect name="KickDegreesVertical" operation="base_set" value="2.5,1.75" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+
+	<!-- gunMR10 -->
+		<item_modifier name="Sniper Rifle Action" installable_tags="gunMR10" modifier_tags="partsMR10_action" type="attachment">
+			<property name="CustomIcon" value="partsMR10_action"/>
+			<property name="Material" value="MmechanicalParts"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="15"/>
+			<property name="EconomicValue" value="180"/>
+			<item_property_overrides name="*">
+				<property name="CustomIcon" value="gunMR10"/>
+			</item_property_overrides>
+			<effect_group>
+				<passive_effect name="DegradationMax" operation="base_set" value="4400,8800" tier="1,6"/>
+				<passive_effect name="RoundsPerMinute" operation="perc_add" value="0,1" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		<item_modifier name="Sniper Rifle Barrel" installable_tags="gunMR10" modifier_tags="partsMR10_barrel" type="attachment">
+			<property name="CustomIcon" value="partsMR10_barrel"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="40"/>
+			<property name="EconomicValue" value="180"/>
+			<effect_group>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="21"/>
+				<passive_effect name="MaxRange" operation="perc_add" value="0,1" tier="1,6"/>
+				<passive_effect name="DamageFalloffRange" operation="perc_add" value="0,0.5" tier="1,6"/>
+				<passive_effect name="SpreadDegreesVertical" operation="perc_subtract" value="0,0.15" tier="1,6"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="perc_subtract" value="0,0.15" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		<item_modifier name="Sniper Rifle Magazine" installable_tags="gunMR10" modifier_tags="partsMR10_magazine" type="attachment">
+			<property name="CustomIcon" value="partsMR10_magazine"/>
+			<property name="Material" value="MmechanicalParts"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="16"/>
+			<property name="EconomicValue" value="180"/>
+			<effect_group>
+				<passive_effect name="MagazineSize" operation="base_set" value="5"/>
+				<passive_effect name="MagazineSize" operation="perc_add" value="0,0,1,1,2,3" tier="1,2,3,4,5,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		<item_modifier name="Sniper Rifle Stock" installable_tags="gunMR10" modifier_tags="partsMR10_stock" type="attachment">
+			<property name="CustomIcon" value="partsMR10_stock"/>
+			<property name="Material" value="Mplastics"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="7"/>
+			<property name="EconomicValue" value="180"/>
+			<effect_group>
+				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="4,2.8" tier="1,6"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="4,2.8" tier="1,6"/>
+				<passive_effect name="SpreadMultiplierAiming" operation="base_set" value="0.04"/>
+				<passive_effect name="KickDegreesVertical" operation="base_set" value="3,2.1" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+
+	<!-- gunSMG5 -->
+		<item_modifier name="SMG5 Action" installable_tags="gunSMG5" modifier_tags="partsSMG5_action" type="attachment">
+			<property name="CustomIcon" value="partsSMG5_action"/>
+			<property name="Material" value="MmechanicalParts"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="15"/>
+			<property name="EconomicValue" value="80"/>
+			<item_property_overrides name="*">
+				<property name="CustomIcon" value="gunSMG5"/>
+			</item_property_overrides>
+			<effect_group>
+				<passive_effect name="DegradationMax" operation="base_set" value="7000,14000" tier="1,6"/>
+				<passive_effect name="RoundsPerMinute" operation="base_set" value="500,800" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		<item_modifier name="SMG5 Barrel" installable_tags="gunSMG5" modifier_tags="partsSMG5_barrel" type="attachment">
+			<property name="CustomIcon" value="partsSMG5_barrel"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="27"/>
+			<property name="EconomicValue" value="80"/>
+			<effect_group>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="18"/>
+				<passive_effect name="MaxRange" operation="perc_add" value="0,1" tier="1,6"/>
+				<passive_effect name="DamageFalloffRange" operation="perc_add" value="0,0.5" tier="1,6"/>
+				<passive_effect name="SpreadDegreesVertical" operation="perc_subtract" value="0,0.15" tier="1,6"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="perc_subtract" value="0,0.15" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		<item_modifier name="SMG5 Magazine" installable_tags="gunSMG5" modifier_tags="partsSMG5_magazine" type="attachment">
+			<property name="CustomIcon" value="partsSMG5_magazine"/>
+			<property name="Material" value="MmechanicalParts"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="16"/>
+			<property name="EconomicValue" value="80"/>
+			<effect_group>
+				<passive_effect name="MagazineSize" operation="base_set" value="15"/>
+				<passive_effect name="MagazineSize" operation="perc_add" value="0,0.335,1,1,1,1.67" tier="1,2,3,4,5,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		<item_modifier name="SMG5 Stock" installable_tags="gunSMG5" modifier_tags="partsSMG5_stock" type="attachment">
+			<property name="CustomIcon" value="partsSMG5_stock"/>
+			<property name="Material" value="Mplastics"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="7"/>
+			<property name="EconomicValue" value="80"/>
+			<effect_group>
+				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="1.35,0.95" tier="1,6"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="1.35,0.95" tier="1,6"/>
+				<passive_effect name="SpreadMultiplierAiming" operation="base_set" value=".35"/>
+				<passive_effect name="KickDegreesVertical" operation="base_set" value="0.8,0.56" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>	
+
+	<!-- gunAK47 -->
+		<item_modifier name="AK47 Action" installable_tags="gunAK47" modifier_tags="partsAK47_action" type="attachment">
+			<property name="CustomIcon" value="partsAK47_action"/>
+			<property name="Material" value="MmechanicalParts"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="15"/>
+			<property name="EconomicValue" value="180"/>
+			<item_property_overrides name="*">
+				<property name="CustomIcon" value="gunAK47"/>
+			</item_property_overrides>
+			<effect_group>
+				<passive_effect name="DegradationMax" operation="base_set" value="7000,14000" tier="1,6"/>
+				<passive_effect name="RoundsPerMinute" operation="base_set" value="600,800" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		<item_modifier name="AK47 Barrel" installable_tags="gunAK47" modifier_tags="partsAK47_barrel" type="attachment">
+			<property name="CustomIcon" value="partsAK47_barrel"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="27"/>
+			<property name="EconomicValue" value="180"/>
+			<effect_group>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="16"/>
+				<passive_effect name="MaxRange" operation="perc_add" value="0,1" tier="1,6"/>
+				<passive_effect name="DamageFalloffRange" operation="perc_add" value="0,0.5" tier="1,6"/>
+				<passive_effect name="SpreadDegreesVertical" operation="perc_subtract" value="0,0.15" tier="1,6"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="perc_subtract" value="0,0.15" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		<item_modifier name="AK47 Magazine" installable_tags="gunAK47" modifier_tags="partsAK47_magazine" type="attachment">
+			<property name="CustomIcon" value="partsAK47_magazine"/>
+			<property name="Material" value="MmechanicalParts"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="16"/>
+			<property name="EconomicValue" value="180"/>
+			<effect_group>
+				<passive_effect name="MagazineSize" operation="base_set" value="10"/>
+				<passive_effect name="MagazineSize" operation="perc_add" value="0,1,2,2,2,3" tier="1,2,3,4,5,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		<item_modifier name="AK47 Stock" installable_tags="gunAK47" modifier_tags="partsAK47_stock" type="attachment">
+			<property name="CustomIcon" value="partsAK47_stock"/>
+			<property name="Material" value="Mwood"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="34"/>
+			<property name="EconomicValue" value="180"/>
+			<effect_group>
+				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="2.8,1.96" tier="1,6"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="2.8,1.96" tier="1,6"/>
+				<passive_effect name="SpreadMultiplierAiming" operation="base_set" value=".15"/>
+				<passive_effect name="KickDegreesVertical" operation="base_set" value="1,0.7" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+
+	<!-- gunRocketLauncher -->
+		<item_modifier name="Rocket Launcher Action" installable_tags="gunRocketLauncher" modifier_tags="partsRocketLauncher_action" type="attachment">
+			<property name="CustomIcon" value="partsRocketLauncher_action"/>
+			<property name="Material" value="MmechanicalParts"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="35"/>
+			<property name="EconomicValue" value="360"/>
+			<effect_group>
+				<passive_effect name="DegradationMax" operation="base_set" value="5000,10000" tier="1,6"/>
+				<passive_effect name="RoundsPerMinute" operation="perc_add" value="0,0.5" tier="1,6"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0,0.5" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		<item_modifier name="Rocket Launcher Barrel" installable_tags="gunRocketLauncher" modifier_tags="partsRocketLauncher_barrel" type="attachment">
+			<property name="CustomIcon" value="partsRocketLauncher_barrel"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="134"/>
+			<property name="EconomicValue" value="360"/>
+			<item_property_overrides name="*">
+				<property name="CustomIcon" value="gunRocketLauncher"/>
+			</item_property_overrides>
+			<effect_group>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="50"/>
+				<passive_effect name="MagazineSize" operation="base_add" value="1"/>
+				<passive_effect name="MaxRange" operation="perc_add" value="0,1" tier="1,6"/>
+				<passive_effect name="DamageFalloffRange" operation="perc_add" value="0,0.5" tier="1,6"/>
+				<passive_effect name="SpreadDegreesVertical" operation="perc_subtract" value="0,0.15" tier="1,6"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="perc_subtract" value="0,0.15" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		<item_modifier name="Rocket Launcher Grip" installable_tags="gunRocketLauncher" modifier_tags="partsRocketLauncher_grip" type="attachment">
+			<property name="CustomIcon" value="partsRocketLauncher_grip"/>
+			<property name="Material" value="Mplastics"/>
+			<property name="RepairTools" value="resourceScrapIron"/>
+			<property name="Weight" value="7"/>
+			<property name="EconomicValue" value="360"/>
+			<effect_group>
+				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="5,3.5" tier="1,6"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="5,3.5" tier="1,6"/>
+				<passive_effect name="SpreadMultiplierAiming" operation="base_set" value="0.15"/>
+				<passive_effect name="KickDegreesVertical" operation="base_set" value="10,7" tier="1,6"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>	
+
+	</append>
+</configs>
