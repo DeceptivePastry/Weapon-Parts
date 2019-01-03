@@ -1,13 +1,13 @@
 <configs>
-<!-- Remove ModPowerBonus to prevent parts from giving damage boost -->
+<!-- Remove ModPowerBonus to prevent parts from giving damage boost, re-add to mods in item_modifiers.xml -->
 	<remove xpath="/items/item[starts-with(@name, 'gun')]/effect_group/passive_effect[@name='ModPowerBonus'][@operation='perc_add']"/>
 	<remove xpath="/items/item[starts-with(@name, 'melee') and not(contains(@name, 'Hand'))]/effect_group/passive_effect[@name='ModPowerBonus'][@operation='perc_add']"/>
 	<set xpath="/items/item/effect_group/passive_effect[@name='ModPowerBonus'][@tags='EconomicValue']/@value">100</set>
 
-	<!-- <append xpath="/items/item[starts-with(@name, 'melee') and not(contains(@name, 'Hand'))]/effect_group[@name='Base Effects']">
+	<append xpath="/items/item[starts-with(@name, 'melee') and not(contains(@name, 'Hand'))]/effect_group[@name='Base Effects']">
 		<passive_effect name="EntityDamage" operation="perc_add" value="0,0.375" tier="1,6"/>
 		<passive_effect name="BlockDamage" operation="perc_add" value="0,0.375" tier="1,6"/>
-		<passive_effect name="HarvestCount" operation="perc_add" value="0,0.5" tier="1,6" tags="oreWoodHarvest"/>
+		<!-- <passive_effect name="HarvestCount" operation="perc_add" value="0,0.5" tier="1,6" tags="oreWoodHarvest"/> -->
 	</append>
 	<append xpath="/items/item[starts-with(@name, 'melee') and not(contains(@name, 'Hand'))]/effect_group[@name='Power Attack']">
 		<passive_effect name="EntityDamage" operation="perc_add" value="0,0.375" tier="1,6" tags="secondary"/>
@@ -19,7 +19,7 @@
 	</append>
 	<append xpath="/items/item[starts-with(@name, 'gun') and (contains(@name, 'Bow') or contains(@name, 'bow'))]/effect_group[@name='Base Effects']">
 		<passive_effect name="EntityDamage" operation="perc_add" value="0,0.375" tier="1,6"/>
-	</append> -->
+	</append>
 
 <!-- gunPistol -->
 	<!-- General -->
